@@ -1,22 +1,10 @@
-# auth-graphql-starter
+// THIS IS HOC component, HOC is func, 
 
-GraphQl using with passport for authentication
+import React, { Component, WrapComponent } from 'react';
+import { graphql } from 'react-apollo';
+import { hashHistory } from 'react-router';
+import user from '../queries/user';
 
-
-```
-// Pass cookies to graphql
-app.use('/graphql', (req, res) => {
-  return graphqlHTTP({
-    schema,
-    graphiql: true, // or whatever you want
-    context: { req, res },
-  })(req, res);
-);
-```
-
-
-// Required auth , HOC to defined which one could sit behind authentication
-```
 export default (WrapComponent) => {
 
   class RequiredAuth extends Component {
@@ -41,5 +29,3 @@ export default (WrapComponent) => {
 
   return graphql(user)(RequiredAuth);
 }
-
-```
